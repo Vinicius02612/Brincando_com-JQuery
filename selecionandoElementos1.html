@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Selecionando Elementos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        .negrito {
+            font-weight: bold;
+            color: black;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Selecionando Elementos #01</h1>
+    <div>
+        <p>Parágrafo
+            <span class='negrito'>dentro span</span>
+        </p>
+    </div>
+    <div>
+        <ul id='feira'>
+            <li>Arroz</li>
+            <li wm-obrigatorio>Feijão</li>
+            <li class='opcional'>Carne</li>
+            <li class='opcional'>Ovo</li>
+        </ul>
+    </div>
+    <form>
+        <input type='text' name='texto'>
+        <input type='password' name='senha'>
+        <input type='checkbox' name='check1'>
+        <input type='radio' name='radio1'>
+        <input type='file' name='arquivo'>
+    </form>
+
+    <script>
+        // ...
+        //Adicionando class  destaque na div com id feira
+
+        $('#feira').addClass('destaque')//.removeClass('destaque')
+        
+        //Adicionando class destaque nas Li's
+        $('li').addClass('destaque')
+
+        //removendo um atributo obrigatório 
+
+        $('[wm-obrigatorio]').removeClass('destaque')
+
+        //removendo os li's de tipo = opcional
+
+        $('li.opcional').removeClass('destaque')
+
+        //cOMANDOS EXCLUSIVOS DO JQUERY
+
+        //Pegando o primeiro elemento li e mudando seu estilo
+        $('li:first').css('border', 'solid 3px yellow')
+
+        //Pegando o os li impares e mundando sua borda
+        $('li:odd').css('border', 'solid 10px orange')
+
+        //pegando os elementos apartir do elemento com indice 1
+        $('li:gt(1)').css('border', 'solid 10px white')
+
+        //pegando tirando as bordas dos elementos menos o ultimo li
+        $('li:not(:last)').css('border', 'none')
+
+
+        //SELECIONANDO ELEMENTOS DO FORM
+
+
+        $('form *').hide()//escondendo todos os campos do form
+        $('form :text').show()//mostrando elementos do tipo text
+        $('form :password').show()//mostrando elementos do tipo senha/password
+        $('form :checkbox').show()//mostrando elementos do tipo checkbox
+        $('form :radio').show()//mostranod elementos do tipo radios
+        $('form :file').show()//mostranod elementos do tipo file
+        
+
+    </script>
+</body>
